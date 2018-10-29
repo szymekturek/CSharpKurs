@@ -16,7 +16,7 @@ namespace Hello
 
             //foreach (var i in args)
             //{
-            //    Console.WriteLine("Hello," + i);
+            //    Console.WriteLine("Hello," + i):
             //}
             Console.ReadLine();
         }
