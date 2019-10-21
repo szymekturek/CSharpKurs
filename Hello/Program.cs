@@ -51,6 +51,7 @@ namespace Hello
         {
             Console.Write("Podaj liczbę: ");
             int number;
+            //int age = int.Parse(Console.ReadLine());
             bool result = int.TryParse(Console.ReadLine(), out number);
             //number
 
