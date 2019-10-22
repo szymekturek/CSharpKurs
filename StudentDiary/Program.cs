@@ -23,20 +23,36 @@ namespace StudentDiary
             {
                 Console.WriteLine("Podaj ocenę z zakresu 1-10");
 
-                float rating = float.Parse(Console.ReadLine());
+                float rating;
+                bool result = float.TryParse(Console.ReadLine(), out rating);
                
                 if(rating == 11)
                 {
                     break;
                 }
 
-                diary.AddRating(rating);
+                if (result)
+                {
+                    if (rating  > 0 && rating <= 10)
+                    {
+                        diary.AddRating(rating);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Niepoprawna liczbę, podaj liczbę z zakresu 1-10!");
+                    }
+                }
 
             }
-            Console.WriteLine("Średnia twoich ocen to: " + diary.CalculateAverage());
-            Console.WriteLine("Max ocena to:" + diary.GiveMaxRating());
-            Console.WriteLine("Min ocena to: " + diary.GiveMinRating());
-            Console.ReadKey();
+            //int test = diary.DiaryCount();
+            if (diary.DiaryCount() > 0) //zabezpieczenie przed natychmiastowym wyjściem z programu
+            {
+
+                Console.WriteLine("Średnia twoich ocen to: " + diary.CalculateAverage());
+                Console.WriteLine("Max ocena to:" + diary.GiveMaxRating());
+                Console.WriteLine("Min ocena to: " + diary.GiveMinRating());
+                Console.ReadKey();
+            }
         }
     }
 }

@@ -8,8 +8,13 @@ namespace StudentDiary
 {
     class Diary
     {
+        public Diary()
+        {
+            ratings = new List<float>();
+        }
+
         //Zmienne
-        List<float> ratings = new List<float>();
+        List<float> ratings; // = new List<float>();
 
         
 
@@ -41,5 +46,9 @@ namespace StudentDiary
             return ratings.Min();
         }
 
+        public int DiaryCount()
+        {
+            return ratings.Count();
+        }
     }
 }
